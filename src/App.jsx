@@ -9,6 +9,20 @@ import { ToastContainer, toast } from 'react-toastify';
 
 function App() {
   
+  useEffect(() => {
+    function scheduleReload() {
+      // 15 aur 40 ke beech random seconds
+      const randomSeconds = Math.floor(Math.random() * (40 - 15 + 1)) + 15;
+      // console.log(`Page will reload in ${randomSeconds} seconds`);
+
+      // reload schedule karo
+      setTimeout(() => {
+        window.location.reload();
+      }, randomSeconds * 1000);
+    }
+
+    scheduleReload(); // component load hote hi schedule kare
+  }, []);
   
   const navigate = useNavigate();
   // const {loadUserData} = useContext(AppContext)
